@@ -5,19 +5,21 @@
 ** main giantman
 */
 
-#include "../include/my.h"
+#include "../../include/my.h"
 #include "include/giantman.h"
 #include <sys/stat.h>
+#include <dirent.h>
+#include <errno.h>
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
-int main(int argc, char const *argv[])
+int main(int argc, char const **argv)
 {
     char *data = fpath_text(argv[1]);
 
-    if (argc == 3) {
+    if (argc == 3 && errors(argc, argv) != 84) {
         if (my_getnbr(argv[2]) == 1) {
             lz_uncompressor(data);
         }
@@ -40,8 +42,8 @@ char *fpath_text(char const *path)
 
 match *get_match(char offset, char len, char c)
 {
-    offset -= 48;
-    len -= 48;
+    offset -= 32;
+    len -= 32;
     char *binoff = my_convbin_format(offset, 8);
     char *binlen = my_convbin_format(len, 8);
     match *mtc = malloc(sizeof(match));
@@ -56,8 +58,9 @@ void lz_uncompressor(char *data)
     int count = 0;
     char final_string[4096];
     match *mtc;
+    int len = my_strlen(data);
 
-    for (int i = 0; data[i] != NULL; i += 3) {
+    for (int i = 0; i <= len; i += 3) {
         mtc = get_match(data[i], data[i + 1], data[i + 2]);
         my_strcat(final_string, steps_back(mtc, count, final_string));
         count = my_strlen(final_string);

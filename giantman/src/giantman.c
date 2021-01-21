@@ -5,7 +5,7 @@
 ** decompress funcs
 */
 
-#include "../include/my.h"
+#include "../../include/my.h"
 #include "include/giantman.h"
 
 char *get_nstr(char *str, int n)

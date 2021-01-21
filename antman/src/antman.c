@@ -18,10 +18,14 @@ int main(int argc, char const *argv[])
     char *data = fpath_text(argv[1]);
     int o;
 
-    if (argc == 3) {
-        if (my_getnbr(argv[2]) == 1) {
-            lzing(data);
-        }
+    if (argc == 3 && errors(argc, argv) != 84)
+    {
+        if (my_getnbr(argv[2]) == 1)
+            my_putstr(lzing(data));
+        else if (my_getnbr(argv[2]) == 2)
+            my_putstr(lzing(data));
+        else
+            //ici les images ppm (merci Val <3 #nohomo)
     }
     return 0;
 }
@@ -41,8 +45,7 @@ char *fpath_text(char const *path)
 
 void my_putinfo(match *mat)
 {
-    // my_putchar(32 + mat->offset);
-    // my_putchar(32 + mat->len);
-    // my_putchar(mat->value);
-    my_printf("outputed offset %d len %d\n", mat->offset, mat->len);
+    my_putchar(32 + mat->offset);
+    my_putchar(32 + mat->len);
+    my_putchar(mat->value);
 }

@@ -8,7 +8,7 @@
 NAME=		giantman
 
 SRC=		src/giantman.c	\
-			src/text.c		\
+			src/errors.c	\
 			src/decompress.c
 
 OBJ=		$(SRC:.c=.o)

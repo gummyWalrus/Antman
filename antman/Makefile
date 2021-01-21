@@ -11,6 +11,10 @@ SRC=		src/antman.c	\
 			src/compress.c	\
 			src/list.c		\
 			src/listing.c	\
+			src/compress_2.c\
+			src/list_4.c	\
+			src/list_3.c	\
+			src/pls_work.c	\
 			src/list_2.c
 
 OBJ=		$(SRC:.c=.o)
