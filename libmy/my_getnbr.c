@@ -23,7 +23,7 @@ int my_getnbr(char const *str)
     if (str[i] == '\0')
         return (0);
     while (str[i] != '\0' && (str[i] <= '9' && str[i] >= '0')) {
-        if ((nb == 214748364&&str[i]- 48 > 7) || nb > 214748364 || nb_char >10)
+        if ((nb == 214748364 && str[i]-48 >7) || nb > 214748364 || nb_char >10)
             return (0);
         nb = nb * 10 + (str[i] - '0');
         i++;

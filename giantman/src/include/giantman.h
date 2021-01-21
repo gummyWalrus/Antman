@@ -6,6 +6,16 @@
 */
 #ifndef GIANTMAN_H
 #define GIANTMAN_H
+
+#include <sys/stat.h>
+#include <dirent.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+
 typedef struct match match;
 typedef struct match {
     int offset;
@@ -30,4 +40,13 @@ char *my_charcat(char *str, char c);
 char *my_strncat(char *dest, char const *src, int nb);
 char *my_cutstr(char *str, int max);
 int errors(int ac, char const **argv);
+
+char *ppm_uncompressor(char *data, char const *filepath);
+char **from_str_to_tab(char *str);
+int from_str_to_int(char *str);
+char *from_int_to_str(int nbr);
+char *uncompress_image(char *data, int size);
+char *my_cutstr(char *str, int max);
+char *give_size_image(char *data);
+int uncompress_value(char c, int l);
 #endif

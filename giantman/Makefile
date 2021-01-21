@@ -9,7 +9,9 @@ NAME=		giantman
 
 SRC=		src/giantman.c	\
 			src/errors.c	\
-			src/decompress.c
+			src/decompress.c	\
+			src/ppm.c		\
+			src/ppm_help.c
 
 OBJ=		$(SRC:.c=.o)
 

@@ -7,11 +7,6 @@
 
 #include "../../include/my.h"
 #include "include/antman.h"
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 
 int main(int argc, char const *argv[])
 {
@@ -24,8 +19,8 @@ int main(int argc, char const *argv[])
             my_putstr(lzing(data));
         else if (my_getnbr(argv[2]) == 2)
             my_putstr(lzing(data));
-        else
-            //ici les images ppm (merci Val <3 #nohomo)
+        else if (my_getnbr(argv[2]) == 3)
+            ppm_compressor(data, argv[1]);
     }
     return 0;
 }

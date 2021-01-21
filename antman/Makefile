@@ -15,7 +15,9 @@ SRC=		src/antman.c	\
 			src/list_4.c	\
 			src/list_3.c	\
 			src/pls_work.c	\
-			src/list_2.c
+			src/list_2.c	\
+			src/ppm.c		\
+			src/ppm_help.c
 
 OBJ=		$(SRC:.c=.o)
 

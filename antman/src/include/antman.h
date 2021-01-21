@@ -7,6 +7,14 @@
 
 #ifndef ANTMAN_H
 #define ANTMAN_H
+
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+
 typedef struct list list;
 typedef struct elem elem;
 typedef struct elemat elemat;
@@ -73,7 +81,7 @@ void del_first(list *li);
 int my_listlen(list *li);
 matches *get_matchs(list *search, list *look);
 int get_matchlen(elem *look, elem *sch);
-void lzing(char *str);
+char *lzing(char *str);
 char *fpath_text(char const *path);
 elemat *get_laste(matches *mtcs);
 list *init_list(char value);
@@ -105,4 +113,11 @@ void compressor(strlist *cmp, strlist *dcmp, strelem *look, char *sch);
 void my_putmstr(strlist *cmp);
 int get_matchlenght(char *sch, char *lok);
 int my_strlistlen(strlist *li);
+    /* for ppm */
+char **ppm_compressor(char *data, char const *filepath);
+char **from_str_to_tab(char *str);
+int from_str_to_int(char *str);
+char compress_image(int nbr);
+char *my_cutstr(char *str, int max);
+char *take_size_image(char *data);
 #endif

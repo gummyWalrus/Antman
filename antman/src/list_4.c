@@ -39,10 +39,12 @@ void my_putmstr(strlist *cmp)
 
     while (cur->next != NULL)
     {
-        my_printf("offset %d len %d value %c\n", (cur->value[0] - 32), (cur->value[1] - 32), (cur->value[2]));
+        my_printf("offset %d len %d value %c\n",
+        (cur->value[0] - 32), (cur->value[1] - 32), (cur->value[2]));
         cur = cur->next;
     }
-    my_printf("offset %d len %d value %c\n", (cur->value[0] - 32), (cur->value[1] - 32), (cur->value[2]));
+    my_printf("offset %d len %d value %c\n",
+    (cur->value[0] - 32), (cur->value[1] - 32), (cur->value[2]));
 }
 
 int get_matchlenght(char *sch, char *lok)

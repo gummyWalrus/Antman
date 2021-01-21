@@ -65,7 +65,8 @@ void my_put_matches(matches *mtc)
     my_putstr("\nnew buffers\n");
     for (int i = 0; cur->next != NULL; i++)
     {
-        my_printf("index %d offset : %d len : %d letter %c\n", cur->index, cur->mat->offset, cur->mat->len, cur->mat->value);
+        my_printf("index %d offset : %d len : %d letter %c\n",
+        cur->index, cur->mat->offset, cur->mat->len, cur->mat->value);
         cur = cur->next;
     }
 }

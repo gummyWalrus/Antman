@@ -7,13 +7,6 @@
 
 #include "../../include/my.h"
 #include "include/giantman.h"
-#include <sys/stat.h>
-#include <dirent.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 
 int main(int argc, char const **argv)
 {
@@ -22,6 +15,8 @@ int main(int argc, char const **argv)
     if (argc == 3 && errors(argc, argv) != 84) {
         if (my_getnbr(argv[2]) == 1) {
             lz_uncompressor(data);
+        } else if (my_getnbr(argv[2]) == 3) {
+            ppm_uncompressor(data, argv[1]);
         }
     }
     return 0;
